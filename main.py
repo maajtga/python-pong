@@ -1,5 +1,7 @@
 import pygame
 
+from data import paddle
+
 pygame.init()
 
 winsize = [900, 550]
@@ -11,9 +13,16 @@ pygame.display.set_icon(icon)
 
 running = True
 
+Player1 = paddle.Paddle(70, 80)
+Player2 = paddle.Paddle(600, 90)
+
 while running:
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    Player1.render(win)
+    Player2.render(win)
 
     pygame.display.flip()
